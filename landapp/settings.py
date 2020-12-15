@@ -16,8 +16,7 @@ import environ
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False),
-    )
+    DEBUG=(bool, False),)
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -46,9 +45,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third-party
+    'django_extensions',
+
+    # Project-specific
+    'core',
+
+    
+
+
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -127,3 +137,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
+
+
+# Custom user model
+
+AUTH_USER_MODEL = 'core.User'
+LOGIN_REDIRECT_URL = "/"
+
+# Debug toolbar config
+
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
+]
