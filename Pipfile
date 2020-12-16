@@ -6,8 +6,11 @@ name = "pypi"
 [packages]
 django = "*"
 django-environ = "*"
+django-extensions = "*"
+pillow = "*"
 
 [dev-packages]
+prospector = "*"
 
 [requires]
 python_version = "3.9"
