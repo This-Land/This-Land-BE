@@ -143,6 +143,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+MEDIA_DIR = BASE_DIR / "media"
+
 
 # Custom user model
 

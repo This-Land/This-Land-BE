@@ -8,6 +8,7 @@ django = "*"
 django-environ = "*"
 django-extensions = "*"
 pillow = "*"
+psycopg2 = "*"
 
 [dev-packages]
 prospector = "*"
