@@ -12,6 +12,7 @@ djangorestframework = "*"
 pygments = "*"
 django-debug-toolbar = "*"
 django-registration-redux = "*"
+psycopg2 = "*"
 
 [dev-packages]
 prospector = "*"

@@ -1,20 +1,20 @@
 from rest_framework import serializers
-from core.models import Point_of_interest
+from core.models import PointOfInterest
 
 class POISerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = Point_of_interest
+        model = PointOfInterest
         fields = [
             'location_name',
-            'comments',
+            'notes',
             'street_address',
             'city',
             'state',
             'zip_code',
         ]
 
-    # user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='Points_of_interest')    
+    # user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='PointsOfInterest')    
     # location_name = models.TextField(max_length=50)
     # comments = models.TextField(blank=True)
     # street_address = models.CharField(verbose_name='Street Address', max_length=255)
