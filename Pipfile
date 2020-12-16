@@ -8,6 +8,11 @@ django = "*"
 django-environ = "*"
 django-extensions = "*"
 pillow = "*"
+djangorestframework = "*"
+pygments = "*"
+django-debug-toolbar = "*"
+django-registration-redux = "*"
+psycopg2 = "*"
 
 [dev-packages]
 prospector = "*"

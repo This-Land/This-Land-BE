@@ -40,6 +40,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,10 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third-party
+    # 'debug_toolbar',
     'django_extensions',
 
     # Project-specific
     'core',
+    'api',
 
     
 
@@ -59,6 +63,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,7 +78,7 @@ ROOT_URLCONF = 'landapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -147,6 +152,7 @@ STATICFILES_DIRS = [
 # Custom user model
 
 AUTH_USER_MODEL = 'core.User'
+LOGIN_REDIRECT_URL = '/home/'
 
 # Debug toolbar config
 
