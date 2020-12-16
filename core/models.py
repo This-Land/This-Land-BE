@@ -16,6 +16,9 @@ class Point_of_interest(models.Model):
     images = models.ImageField(upload_to='media/images/', null=True)
     category = models.CharField(max_length=35)
     date_created = models.DateField(auto_now=True)
+
+    # def __str__(self):
+    #     return f'{self.user} {self.comments}'
     
     
 
