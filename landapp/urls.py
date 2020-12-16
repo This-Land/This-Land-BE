@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
+from core import views
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    # path("accounts/", include("registration.backends.default.urls")),
+    path('', views.home, name='home'),
+    path('api-auth/', include("rest_framework.urls")),
+    path('api/', include("api.urls")),
+    path("accounts/", include("registration.backends.default.urls")),
 ]
 
         
