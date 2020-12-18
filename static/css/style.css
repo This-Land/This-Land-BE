@@ -15,11 +15,7 @@ header {
 }
 
 body {
-    /* background-color: rgb(171, 209, 83); */
-    background-image: url('camera.jpeg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 1000px;
+    background-color: rgb(171, 209, 83);
 }
 
 .photo-container {
