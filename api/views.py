@@ -15,16 +15,13 @@ class POIListView(ListCreateAPIView):
 
         return self.request.user.Points_of_interest.all()
 
+from rest_framework.views import APIView
+
 class POIDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = POISerializer
+    lookup_url_kwarg = 'PointOfInterest_id'
+    queryset = PointOfInterest.objects.all()
 
-    def get_queryset(self):
-        # if the request method is GET, the queryset is all viewable POIs
-        # otherwise, the queryset is all POIs the current user owns
-        if self.request.method == "GET":
-            return POI.objects.for_user(self.request.user)
-
-        return self.request.user.POIs.all()
 
 class TYSListView(ListCreateAPIView):
     serializer_class = TYSSerializer
@@ -36,6 +33,12 @@ class TYSListView(ListCreateAPIView):
             return TellYourStory.objects.all()
 
         return self.request.user.TellYourStories.all()   
+
+
+class TYSDetailView(RetrieveUpdateDestroyAPIView):
+    serializer_class = TYSSerializer
+    lookup_url_kwarg = 'TellYourStory_id'
+    queryset = TellYourStory.objects.all()
 
     
 
