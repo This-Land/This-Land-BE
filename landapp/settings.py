@@ -56,10 +56,6 @@ INSTALLED_APPS = [
     # Project-specific
     'core',
     'api',
-
-    
-
-
 ]
 
 MIDDLEWARE = [
@@ -144,7 +140,7 @@ STATICFILES_DIRS = [
 # Custom user model
 
 AUTH_USER_MODEL = 'core.User'
-LOGIN_REDIRECT_URL = '/home/'
+LOGIN_REDIRECT_URL = '/api/pointsofinterest/'
 
 # Debug toolbar config
 
