@@ -13,6 +13,8 @@ class POIListView(ListCreateAPIView):
 
         return self.request.user.PointsOfInterest.all()
 
+
+
 class POIDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = POISerializer
     lookup_url_kwarg = 'PointOfInterest_id'
@@ -32,5 +34,19 @@ class TYSListView(ListCreateAPIView):
 class TYSDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = TYSSerializer
     lookup_url_kwarg = 'TellYourStory_id'
-    queryset = TellYourStory.objects.all()
+    queryset = TellYourStory.objects.all()  
+
+
+
+
     
+
+
+# class POIListView(ListCreateAPIView):
+#     serializer_class = POISerializer
+
+#     def get_queryset(self):
+#         return PointOfInterest.objects.for_user(self.request.user)
+
+#     def perform_create(self, serializer):
+    # serializer.save(user=self.request.user)
