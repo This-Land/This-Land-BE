@@ -19,12 +19,8 @@ class PointOfInterest(models.Model):
 
     def __str__(self):
         return f"{self.user} {self.location_name} {self.date_created}"
-
-   
-       
-
     
-    
+
 class TellYourStory(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='TellYourStories')    
     text = models.TextField(max_length=255, null=True, blank=True)
@@ -33,10 +29,3 @@ class TellYourStory(models.Model):
 
     def __str__(self):
         return f"{self.user} {self.images} {self.date_created}"
-
-
-        
-
-    
-    
-
