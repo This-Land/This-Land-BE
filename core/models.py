@@ -6,7 +6,7 @@ class User(AbstractUser):
     pass
 
 class PointOfInterest(models.Model):
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='PointsOfInterest')    
+    #user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='PointsOfInterest')    
     location_name = models.TextField(max_length=50)
     notes = models.TextField(blank=True)
     street_address = models.CharField(verbose_name='Street Address', max_length=255)
@@ -26,7 +26,7 @@ class PointOfInterest(models.Model):
     
     
 class TellYourStory(models.Model):
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='TellYourStories')    
+    #user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='TellYourStories')    
     text = models.TextField(max_length=255, null=True, blank=True)
     images = models.ImageField(upload_to='media/images/', null=True)
     date_created = models.DateField(auto_now=True)

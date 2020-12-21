@@ -17,7 +17,6 @@ class POIListView(ListCreateAPIView):
         return self.request.user.PointsOfInterest.all()
 
 
-from rest_framework.views import APIView
 
 class POIDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = POISerializer
@@ -53,10 +52,7 @@ class TYSDetailView(RetrieveUpdateDestroyAPIView):
     queryset = TellYourStory.objects.all()  
 
 
-class TYSDetailView(RetrieveUpdateDestroyAPIView):
-    serializer_class = TYSSerializer
-    lookup_url_kwarg = 'TellYourStory_id'
-    queryset = TellYourStory.objects.all()
+
 
     
 
