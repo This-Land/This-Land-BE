@@ -15,6 +15,7 @@ django-registration-redux = "*"
 psycopg2 = "*"
 django-heroku = "*"
 gunicorn = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 prospector = "*"
