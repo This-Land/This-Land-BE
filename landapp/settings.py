@@ -16,7 +16,9 @@ import environ
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False),)
+    DEBUG=(bool, False),
+    USE_S3=(bool, True),
+    )
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -58,10 +60,6 @@ INSTALLED_APPS = [
     # Project-specific
     'core',
     'api',
-
-    
-
-
 ]
 
 MIDDLEWARE = [
@@ -149,11 +147,25 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+#  AWS S3
+if env('USE_S3'):
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+    AWS_DEFAULT_ACL = 'public-read'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ]
+}
+
 
 # Custom user model
 
 AUTH_USER_MODEL = 'core.User'
-LOGIN_REDIRECT_URL = '/home/'
+LOGIN_REDIRECT_URL = '/api/pointsofinterest/'
 
 # Debug toolbar config
 
