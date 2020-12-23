@@ -22,7 +22,7 @@ class PointOfInterest(models.Model):
 
 
 class TellYourStory(models.Model):
-    poi = models.ForeignKey(to=PointOfInterest, on_delete=models.CASCADE, related_name='TellYourStories')    
+    poi = models.ForeignKey(to=PointOfInterest, on_delete=models.CASCADE, related_name='TellYourStories', null=True)    
     text = models.TextField(max_length=255, null=True, blank=True)
     images = models.ImageField(upload_to='media/images/', null=True)
     date_created = models.DateField(auto_now=True)
