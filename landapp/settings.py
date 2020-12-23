@@ -11,12 +11,14 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-
+import django_heroku
 import environ
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False),)
+    DEBUG=(bool, False),
+    USE_S3=(bool, True),
+    )
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -145,6 +147,13 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+#  AWS S3
+if env('USE_S3'):
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+    AWS_DEFAULT_ACL = 'public-read'
 
 # Custom user model
 
@@ -160,6 +169,6 @@ INTERNAL_IPS = [
 ]
 
 # Configure Django App for Heroku.
-import django_heroku
+
 django_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
