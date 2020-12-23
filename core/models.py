@@ -17,8 +17,13 @@ class PointOfInterest(models.Model):
     category = models.CharField(max_length=35)
     date_created = models.DateField(auto_now=True)
 
-    def __str__(self):
-        return f"{self.user} {self.location_name} {self.date_created}"
+    # def __str__(self):
+    #     return f"{self.notes} {self.location_name} {self.date_created}"
+
+   
+       
+
+    
     
 
 class TellYourStory(models.Model):
@@ -27,5 +32,12 @@ class TellYourStory(models.Model):
     images = models.ImageField(upload_to='media/images/', null=True)
     date_created = models.DateField(auto_now=True)
 
-    def __str__(self):
-        return f"{self.user} {self.images} {self.date_created}"
+    # def __str__(self):
+    #     return f"{self.text} {self.images} {self.date_created}"
+
+
+        
+
+    
+    
+
