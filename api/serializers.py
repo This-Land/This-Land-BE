@@ -18,6 +18,7 @@ class POISerializer(serializers.ModelSerializer):
             'images',
             'category',
             'date_created',
+
         ]
 
 class TYSSerializer(serializers.ModelSerializer):
