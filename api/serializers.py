@@ -15,7 +15,7 @@ class TYSSerializer(serializers.ModelSerializer):
         ]
 
 class POISerializer(serializers.ModelSerializer):
-    TellYourStories = TYSSerializer(many=True, allow_null=True)
+    TellYourStories = TYSSerializer(many=True, read_only=True)
 
     # user = serializers.SlugRelatedField(read_only=True, slug_field="username")
 
