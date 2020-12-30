@@ -7,7 +7,7 @@ class TYSSerializer(serializers.ModelSerializer):
     class Meta:
         model = TellYourStory
         fields = [
-            #'user',
+            'user',
             'text',
             'images',
             'date_created',
@@ -22,7 +22,7 @@ class POISerializer(serializers.ModelSerializer):
     class Meta:
         model = PointOfInterest
         fields = [
-            #'user',
+            'user',
             'location_name',
             'notes',
             'street_address',
