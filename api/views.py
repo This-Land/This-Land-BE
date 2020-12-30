@@ -32,6 +32,7 @@ class TYSListView(ListCreateAPIView):
         return self.request.user.TellYourStories.all() 
 
 class TYSDetailView(RetrieveUpdateDestroyAPIView):
+    
     serializer_class = TYSSerializer
     lookup_url_kwarg = 'TellYourStory_id'
     queryset = TellYourStory.objects.all()  
