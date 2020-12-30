@@ -8,6 +8,7 @@ class TYSSerializer(serializers.ModelSerializer):
         model = TellYourStory
         fields = [
             'user',
+            'id',
             'text',
             'images',
             'date_created',
@@ -22,6 +23,7 @@ class POISerializer(serializers.ModelSerializer):
         model = PointOfInterest
         fields = [
             'user',
+            'id',
             'location_name',
             'notes',
             'street_address',
