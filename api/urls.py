@@ -7,4 +7,5 @@ urlpatterns = [
     path('pointsofinterest/<int:PointOfInterest_id>/', api_views.POIDetailView.as_view()),
     path("tellyourstory/", api_views.TYSListView.as_view()),
     path('tellyourstory/<int:TellYourStory_id>/', api_views.TYSDetailView.as_view()),
+    path("usertoken/", api_views.ExampleView.as_view()),
 ]
