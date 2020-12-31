@@ -1,11 +1,23 @@
-from core.models import PointOfInterest, TellYourStory
-from api.serializers import POISerializer, TYSSerializer
+from core.models import PointOfInterest, TellYourStory, User
+from api.serializers import POISerializer, TYSSerializer, UserSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
+
+class UserListView(ListCreateAPIView):
+    serializer_class = UserSerializer
+
+    def get_queryset(self):	
+        return User.objects.all()
+
+class UserDetailView(RetrieveUpdateDestroyAPIView):
+    serializer_class = UserSerializer
+    lookup_url_kwarg = 'User_id'
+    queryset = User.objects.all()       	
+
 
 class POIListView(ListCreateAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -19,8 +31,6 @@ class POIListView(ListCreateAPIView):
             return PointOfInterest.objects.all()	
 
         return self.request.user.PointsOfInterest.all()
-
-
 
 class POIDetailView(RetrieveUpdateDestroyAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
