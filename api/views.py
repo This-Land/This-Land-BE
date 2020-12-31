@@ -1,8 +1,27 @@
-from core.models import PointOfInterest, TellYourStory
-from api.serializers import POISerializer, TYSSerializer
+from core.models import PointOfInterest, TellYourStory, User
+from api.serializers import POISerializer, TYSSerializer, UserSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
+
+class UserListView(ListCreateAPIView):
+    serializer_class = UserSerializer
+
+    def get_queryset(self):	
+        return User.objects.all()
+
+class UserDetailView(RetrieveUpdateDestroyAPIView):
+    serializer_class = UserSerializer
+    lookup_url_kwarg = 'User_id'
+    queryset = User.objects.all()       	
+
 
 class POIListView(ListCreateAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = POISerializer
 
     def get_queryset(self):	
@@ -13,14 +32,17 @@ class POIListView(ListCreateAPIView):
 
         return self.request.user.PointsOfInterest.all()
 
-
-
 class POIDetailView(RetrieveUpdateDestroyAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
     serializer_class = POISerializer
     lookup_url_kwarg = 'PointOfInterest_id'
     queryset = PointOfInterest.objects.all()
 
 class TYSListView(ListCreateAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = TYSSerializer
 
     def get_queryset(self):
@@ -32,12 +54,26 @@ class TYSListView(ListCreateAPIView):
         return self.request.user.TellYourStories.all() 
 
 class TYSDetailView(RetrieveUpdateDestroyAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     
     serializer_class = TYSSerializer
     lookup_url_kwarg = 'TellYourStory_id'
     queryset = TellYourStory.objects.all()  
 
 
+class ExampleView(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        token = Token.objects.get_or_create(user=request.user)[0]
+
+        content = {
+            'user': str(request.user),  # `django.contrib.auth.User` instance.
+            'token': str(token.key),  # None 
+        }
+        return Response(content)
 
 
     
