@@ -9,7 +9,7 @@
     <title>Points of Interest</title>
 </head>
 <body>
-    <p class="user"> active user: {{ user.username }}</p>
+    {% comment %} <p class="user"> active user: {{ user.username }}</p> {% endcomment %}
     {% comment %} <header>
         <a href="{% url 'gallery_list' %}">List of Galleries</a>
         {% if request.user.is_authenticated %}
