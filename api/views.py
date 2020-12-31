@@ -2,6 +2,13 @@ from core.models import PointOfInterest, TellYourStory
 from api.serializers import POISerializer, TYSSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
+class UserListView(ListCreateAPIView):
+    serializer_class = POISerializer
+
+    def get_queryset(self):	
+        return PointOfInterest.objects.all()	
+
+
 class POIListView(ListCreateAPIView):
     serializer_class = POISerializer
 
@@ -12,8 +19,6 @@ class POIListView(ListCreateAPIView):
             return PointOfInterest.objects.all()	
 
         return self.request.user.PointsOfInterest.all()
-
-
 
 class POIDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = POISerializer

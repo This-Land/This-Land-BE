@@ -3,7 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
+    user_name = models.CharField(null=True, blank=True, max_length=63)
+    password = models.CharField(null=True, blank=True, max_length=63)
 
 class PointOfInterest(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='PointsOfInterest', null=True)    

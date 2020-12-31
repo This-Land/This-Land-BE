@@ -1,6 +1,15 @@
 from rest_framework import serializers
-from core.models import PointOfInterest, TellYourStory
+from core.models import PointOfInterest, TellYourStory, User
 
+class UserSerializer(serializers.ModelSerializer):
+    #user = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    class Meta:
+        model = User
+        fields = [
+            'user_name',
+            'password',
+            'id',
+        ]
 
 class TYSSerializer(serializers.ModelSerializer):
     #user = serializers.SlugRelatedField(read_only=True, slug_field="username")
@@ -35,12 +44,3 @@ class POISerializer(serializers.ModelSerializer):
             'date_created',
             'TellYourStories',
         ]
-
-
-
-
-# class TellYourStory(models.Model):
-#     user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='TellYourStories')    
-#     text = models.TextField(max_length=255, null=True, blank=True)
-#     image = models.ImageField(upload_to='media/images/', null=True, blank=True)
-#     date_created = models.DateField(auto_now=True)
