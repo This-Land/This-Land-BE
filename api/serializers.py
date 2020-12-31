@@ -2,7 +2,7 @@ from rest_framework import serializers
 from core.models import PointOfInterest, TellYourStory, User
 
 class UserSerializer(serializers.ModelSerializer):
-    #user = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    user = serializers.SlugRelatedField(read_only=True, slug_field="username")
     class Meta:
         model = User
         fields = [

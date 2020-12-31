@@ -6,7 +6,12 @@ class UserListView(ListCreateAPIView):
     serializer_class = UserSerializer
 
     def get_queryset(self):	
-        return User.objects.all()	
+        return User.objects.all()
+
+class UserDetailView(RetrieveUpdateDestroyAPIView):
+    serializer_class = UserSerializer
+    lookup_url_kwarg = 'User_id'
+    queryset = User.objects.all()       	
 
 
 class POIListView(ListCreateAPIView):
