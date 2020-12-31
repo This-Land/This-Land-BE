@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    user_name = models.CharField(null=True, blank=True, max_length=63)
+    user = models.CharField(null=True, blank=True, max_length=63)
     password = models.CharField(null=True, blank=True, max_length=63)
 
 class PointOfInterest(models.Model):
