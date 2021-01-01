@@ -16,6 +16,7 @@ class TYSSerializer(serializers.ModelSerializer):
     class Meta:
         model = TellYourStory
         fields = [
+            'username',
             'user',
             'id',
             'text',
@@ -31,6 +32,7 @@ class POISerializer(serializers.ModelSerializer):
     class Meta:
         model = PointOfInterest
         fields = [
+            'username',
             'user',
             'id',
             'location_name',
