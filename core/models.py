@@ -8,7 +8,7 @@ class User(AbstractUser):
 
 class PointOfInterest(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='PointsOfInterest', null=True)    
-    # username = models.CharField(null=True, blank=True, max_length=63)
+    username = models.CharField(null=True, blank=True, max_length=63)
     location_name = models.TextField(max_length=50)
     notes = models.TextField(blank=True)
     street_address = models.CharField(verbose_name='Street Address', max_length=255)
@@ -22,7 +22,7 @@ class PointOfInterest(models.Model):
 
 class TellYourStory(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='TellYourStories', null=True)    
-    # username = models.CharField(null=True, blank=True, max_length=63)
+    username = models.CharField(null=True, blank=True, max_length=63)
     poi = models.ForeignKey(to=PointOfInterest, on_delete=models.CASCADE, related_name='TellYourStories', null=True)  
     text = models.TextField(max_length=255, null=True)
     images = models.ImageField(upload_to='media/images/', null=True, blank=True)
