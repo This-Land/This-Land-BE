@@ -24,7 +24,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('api-auth/', include("rest_framework.urls")),
     path('api/', include("api.urls")),
-    # path("accounts/", include("registration.backends.default.urls")),
+    path("accounts/", include("registration.backends.default.urls")),
 ]
 
         
