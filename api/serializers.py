@@ -7,7 +7,7 @@ class TYSSerializer(serializers.ModelSerializer):
         model = TellYourStory
         fields = [
             'user',
-            # 'username',
+            'username',
             'id',
             'text',
             'images',
@@ -23,7 +23,7 @@ class POISerializer(serializers.ModelSerializer):
         model = PointOfInterest
         fields = [
             'user',
-            # 'username',
+            'username',
             'id',
             'location_name',
             'notes',
