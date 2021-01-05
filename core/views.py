@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 
-def index_page(request):
+def home(request):
     return HttpResponseRedirect("http://127.0.0.1:8000/admin")
 
 
