@@ -18,6 +18,9 @@ django-cors-headers = "*"
 django-storages = "*"
 boto3 = "*"
 django-registration-redux = "*"
+djoser = "*"
+djangorestframework-simplejwt = "*"
+social-auth-app-django = "*"
 
 [dev-packages]
 prospector = "*"
