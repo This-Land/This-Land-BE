@@ -168,7 +168,7 @@ REST_FRAMEWORK = {
 # Custom user model
 
 AUTH_USER_MODEL = 'core.User'
-LOGIN_REDIRECT_URL = '/api/pointsofinterest/'
+# LOGIN_REDIRECT_URL = '/api/pointsofinterest/'
 
 # Debug toolbar config
 

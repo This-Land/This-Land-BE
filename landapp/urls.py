@@ -21,10 +21,10 @@ from core import views
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
+    path('', views.index_page, name='index.page'),
     path('api-auth/', include("rest_framework.urls")),
     path('api/', include("api.urls")),
-    path("accounts/", include("registration.backends.default.urls")),
+    # path("accounts/", include("registration.backends.default.urls")),
 ]
 
         
