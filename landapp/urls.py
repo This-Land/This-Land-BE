@@ -18,12 +18,13 @@ from django.urls import include, path
 from core import views
 
 urlpatterns = [
-
     path('admin/', admin.site.urls),
-    path('', views.index_page, name='index_page'),
+    path('', views.home, name='home'),
     path('api-auth/', include("rest_framework.urls")),
     path('api/', include("api.urls")),
-    path("accounts/", include("registration.backends.default.urls")),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.authtoken')),
+    # path("accounts/", include("registration.backends.simple.urls")),
 ]
 
         
