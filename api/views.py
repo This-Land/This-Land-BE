@@ -1,7 +1,18 @@
-from core.models import PointOfInterest, TellYourStory
-from api.serializers import POISerializer, TYSSerializer
+from core.models import PointOfInterest, TellYourStory, User
+from api.serializers import POISerializer, TYSSerializer, UserSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
+
+class UserListView(ListCreateAPIView):
+    serializer_class = UserSerializer
+
+    def get_queryset(self):	
+        # if the request method is GET, the queryset is all viewable POIs	
+        # otherwise, the queryset is all POIs the current user owns	
+        if self.request.method == "GET":	
+            return User.objects.all()	
+
+        return self.request.user.PointsOfInterest.all()
 
 class POIListView(ListCreateAPIView):
     serializer_class = POISerializer
