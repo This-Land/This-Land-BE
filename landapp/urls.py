@@ -24,7 +24,7 @@ urlpatterns = [
     path('api/', include("api.urls")),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
-    path("accounts/", include("registration.backends.simple.urls")),
+    # path("accounts/", include("registration.backends.simple.urls")),
 ]
 
         
