@@ -106,17 +106,17 @@ WSGI_APPLICATION = 'landapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {'default': env.db()}
+DATABASES = {'default': env.db()}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postresql',
-        'NAME': 'auth_system',
-        'USER': 'thisland',
-        'PASSWORD': 'dbpostgres',
-        'HOST': 'localhost',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postresql',
+#         'NAME': 'auth_system',
+#         'USER': 'thisland',
+#         'PASSWORD': 'dbpostgres',
+#         'HOST': 'localhost',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
