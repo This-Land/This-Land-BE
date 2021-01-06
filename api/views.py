@@ -1,8 +1,8 @@
 from core.models import PointOfInterest, TellYourStory, User
 from api.serializers import POISerializer, TYSSerializer, UserSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-#from rest_framework.decorators import permission_classes, authentication_classes
-from rest_framework.permissions import  api_view #AllowAny
+from rest_framework.decorators import permission_classes#, authentication_classes
+#from rest_framework.permissions import  api_view, AllowAny
 
 
 
@@ -18,8 +18,8 @@ class UserListView(ListCreateAPIView):
 
         return self.request.user.PointsOfInterest.all()
 
-@api_view(['POST'])
-#@permission_classes((AllowAny, )) 
+#@api_view(['POST'])
+@permission_classes(['POST']) 
 class POIListView(ListCreateAPIView):
     serializer_class = POISerializer
 
