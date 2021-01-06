@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'registration',
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -86,7 +88,7 @@ ROOT_URLCONF = 'landapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,7 +107,17 @@ WSGI_APPLICATION = 'landapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {'default': env.db()}
+# DATABASES = {'default': env.db()}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postresql',
+        'NAME': 'auth_system',
+        'USER': 'thisland',
+        'PASSWORD': 'dbpostgres',
+        'HOST': 'localhost',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -145,8 +157,23 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    os.path.join(BASE_DIR, 'build/static'),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework.authentication.TokenAuthentication', 
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.FormParser',  
+    ]
+}
 
 #  AWS S3
 if env('USE_S3'):
@@ -156,6 +183,7 @@ if env('USE_S3'):
     AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
     AWS_DEFAULT_ACL = 'public-read'
 
+<<<<<<< HEAD
 REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
@@ -166,11 +194,12 @@ REST_FRAMEWORK = {
 
 }
 
+=======
+>>>>>>> 934c3d3586e63c1c0abb83fa4db306a89eb54785
 
 # Custom user model
 
 AUTH_USER_MODEL = 'core.User'
-LOGIN_REDIRECT_URL = '/api/pointsofinterest/'
 
 # Debug toolbar config
 
@@ -184,16 +213,3 @@ INTERNAL_IPS = [
 
 django_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
-
-# REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.IsAuthenticated',
-#     ]
-# }
-
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework.authentication.BasicAuthentication',
-#         'rest_framework.authentication.SessionAuthentication',
-#     ]
-# }

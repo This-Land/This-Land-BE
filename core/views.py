@@ -1,10 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect
-
+from django.http import HttpResponseRedirect
 
 def home(request):
-    return render(request, "pages/home.html")
-
-
+    return HttpResponseRedirect("http://127.0.0.1:8000/admin")
 
 
 # Create your views here.
