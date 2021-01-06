@@ -183,17 +183,6 @@ if env('USE_S3'):
     AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
     AWS_DEFAULT_ACL = 'public-read'
 
-REST_FRAMEWORK = {
-    'DEFAULT_PARSER_CLASSES': [
-        'rest_framework.parsers.JSONParser',
-        'rest_framework.parsers.MultiPartParser',
-        'rest_framework.parsers.FormParser',
-        
-    ]
-
-}
-
-
 # Custom user model
 
 AUTH_USER_MODEL = 'core.User'
