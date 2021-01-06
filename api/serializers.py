@@ -1,21 +1,5 @@
 from rest_framework import serializers
-<<<<<<< HEAD
-from core.models import PointOfInterest, TellYourStory, User
-
-
-
-class UserSerializer(serializers.ModelSerializer):
-    # user = serializers.SlugRelatedField(read_only=True, slug_field="username")
-    class Meta:
-        model = User
-        fields = [
-            'username',
-            'password',
-            'id',
-        ]
-=======
 from core.models import PointOfInterest, TellYourStory
->>>>>>> 934c3d3586e63c1c0abb83fa4db306a89eb54785
 
 
 class TYSSerializer(serializers.ModelSerializer):
@@ -23,9 +7,8 @@ class TYSSerializer(serializers.ModelSerializer):
     class Meta:
         model = TellYourStory
         fields = [
-            'username',
             'user',
-            'username',
+            #'username',
             'id',
             'text',
             'images',
@@ -40,9 +23,8 @@ class POISerializer(serializers.ModelSerializer):
     class Meta:
         model = PointOfInterest
         fields = [
-            'username',
             'user',
-            'username',
+            #'username',
             'id',
             'location_name',
             'notes',
