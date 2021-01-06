@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from core import views
-from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +24,8 @@ urlpatterns = [
     path('api/', include("api.urls")),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
-    ]
+    path("accounts/", include("registration.backends.simple.urls")),
+]
 
         
 # if settings.DEBUG:
