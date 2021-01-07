@@ -108,16 +108,6 @@ WSGI_APPLICATION = 'landapp.wsgi.application'
 
 DATABASES = {'default': env.db()}
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postresql',
-#         'NAME': 'auth_system',
-#         'USER': 'thisland',
-#         'PASSWORD': 'dbpostgres',
-#         'HOST': 'localhost',
-#     }
-# }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -155,18 +145,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build/static'),
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'build/static'),
+# ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 REST_FRAMEWORK = {
-    # 'DEFAULT_AUTHENTICATION_CLASSES': (
-    #    'rest_framework.authentication.TokenAuthentication', 
-    # ),
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.IsAuthenticated',
-    # ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework.authentication.TokenAuthentication', 
+    ),
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
         'rest_framework.parsers.MultiPartParser',
