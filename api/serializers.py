@@ -16,8 +16,8 @@ class TYSSerializer(serializers.ModelSerializer):
 
 class POISerializer(serializers.ModelSerializer):
     TellYourStories = TYSSerializer(many=True, read_only=True)
-    user = serializers.SlugRelatedField(read_only=True, slug_field="username")
-
+    # user = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    user_id = user.id
     class Meta:
         model = PointOfInterest
         fields = [
