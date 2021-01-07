@@ -2,12 +2,11 @@ from rest_framework import serializers
 from core.models import PointOfInterest, TellYourStory
 
 class TYSSerializer(serializers.ModelSerializer):
-    #user = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    user = serializers.SlugRelatedField(read_only=True, slug_field="username")
     class Meta:
         model = TellYourStory
         fields = [
             'user',
-            'user.username'
             'id',
             'text',
             'images',
@@ -17,13 +16,12 @@ class TYSSerializer(serializers.ModelSerializer):
 
 class POISerializer(serializers.ModelSerializer):
     TellYourStories = TYSSerializer(many=True, read_only=True)
-    #user = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    user = serializers.SlugRelatedField(read_only=True, slug_field="username")
 
     class Meta:
         model = PointOfInterest
         fields = [
             'user',
-            'user.username'
             'id',
             'location_name',
             'notes',
