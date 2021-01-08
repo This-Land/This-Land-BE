@@ -6,6 +6,9 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 class POIListView(ListCreateAPIView):
     serializer_class = POISerializer
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
     def get_queryset(self):	
         # if the request method is GET, the queryset is all viewable POIs	
         # otherwise, the queryset is all POIs the current user owns	
@@ -17,9 +20,7 @@ class POIDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = POISerializer
     lookup_url_kwarg = 'PointOfInterest_id'
     queryset = PointOfInterest.objects.all()
-
-    # def delete(self, request, *args, **kwargs):
-    #     return self.destroy(request, *args, **kwargs)
+    
 
 class TYSListView(ListCreateAPIView):
     serializer_class = TYSSerializer
