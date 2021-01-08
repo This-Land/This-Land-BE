@@ -19,6 +19,9 @@ class POIDetailView(RetrieveUpdateDestroyAPIView):
     lookup_url_kwarg = 'PointOfInterest_id'
     queryset = PointOfInterest.objects.all()
 
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
 class TYSListView(ListCreateAPIView):
     serializer_class = TYSSerializer
 
