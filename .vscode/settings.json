@@ -1,6 +1,5 @@
 {
     "python.linting.pylintEnabled": false,
     "python.linting.prospectorEnabled": true,
-    "python.linting.enabled": true,
-    "python.pythonPath": "/Users/philipjohnson/.local/share/virtualenvs/this-land-be-rEz04mjV/bin/python"
+    "python.linting.enabled": true
 }

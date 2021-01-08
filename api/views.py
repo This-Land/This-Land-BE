@@ -11,7 +11,6 @@ class POIListView(ListCreateAPIView):
         # otherwise, the queryset is all POIs the current user owns	
         if self.request.method == "GET":	
             return PointOfInterest.objects.all()	
-
         return self.request.user.PointsOfInterest.all()
 
 class POIDetailView(RetrieveUpdateDestroyAPIView):
