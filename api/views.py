@@ -11,7 +11,6 @@ class POIListView(ListCreateAPIView):
         # otherwise, the queryset is all POIs the current user owns	
         if self.request.method == "GET":	
             return PointOfInterest.objects.all()	
-
         return self.request.user.PointsOfInterest.all()
 
 class POIDetailView(RetrieveUpdateDestroyAPIView):
@@ -19,8 +18,8 @@ class POIDetailView(RetrieveUpdateDestroyAPIView):
     lookup_url_kwarg = 'PointOfInterest_id'
     queryset = PointOfInterest.objects.all()
 
-    def delete(self, request, *args, **kwargs):
-        return self.destroy(request, *args, **kwargs)
+    # def delete(self, request, *args, **kwargs):
+    #     return self.destroy(request, *args, **kwargs)
 
 class TYSListView(ListCreateAPIView):
     serializer_class = TYSSerializer
