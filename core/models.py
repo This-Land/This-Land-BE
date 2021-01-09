@@ -29,4 +29,4 @@ class TellYourStory(models.Model):
 
 
     def __str__(self):
-        return f"{self.poi}"
+        return f"{self.poi} {self.date_created}"
