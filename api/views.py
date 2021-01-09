@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 
 class POIListView(ListCreateAPIView):
     serializer_class = POISerializer
+    
 
 
     def perform_create(self, serializer):
