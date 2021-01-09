@@ -28,6 +28,9 @@ class TYSListView(ListCreateAPIView):
     serializer_class = TYSSerializer
     # permission_classes = [IsAuthenticated]
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
     def get_queryset(self):
         # if the request method is GET, the queryset is all viewable TYSs
         # otherwise, the queryset is all TYSs the current user owns
