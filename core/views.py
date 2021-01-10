@@ -1,10 +1,6 @@
 from django.http import HttpResponseRedirect
 
 def home(request):
-    return HttpResponseRedirect("http://127.0.0.1:8000/admin")
+    return HttpResponseRedirect("https://this-land-team-5.herokuapp.com/admin/")
 
-
-# Create your views here.
-# def index_page(request):
-#     return render(request, "core/index_page.html")
     
