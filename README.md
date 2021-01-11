@@ -21,19 +21,14 @@ This was the final project for [Momentum Learning](https://www.momentumlearn.com
 | ----------- | -------- | -------| ----- |
 | GET | `/admin/` | Not so much for the API | But a very convenient admin panel |
 | POST | `/auth/token/login/` | Returns Auth Token | Requires `username` and `password` |
-
 | POST | `/pointsofinterest/` | Creates a new POI model object |  |
 | POST | `/tellyourstory/` | Creates a new TYS model object |  |
-
 | GET | `/pointsofinterest/` | Returns a list of all objects in the PointOfInterest model |  |
 | GET | `/tellyourstory/` | Returns a list of all objects in the TellYourStory model |  |
-
 | GET | `/pointsofinterest/<int:PointOfInterest_id>/` | Returns the detail view for `<POI_pk>` |  |
 | GET | `/tellyourstory/<int:TellYourStory_id>/` | Returns the detail view for `<TYS_pk>` |  |
-
 | GET | `/pointsofinterest/<int:PointOfInterest_id>/delete/` | Returns the detail view for `<POI_pk>` |  |
 | GET | `/tellyourstory/<int:TellYourStory_id>/delete/>/` | Returns the detail view for `<TYS_pk>` |  |
-
 | GET | `/pointsofinterest/<int:PointOfInterest_id>/update/` | Returns the detail view for `<POI_pk>` |  |
 | GET | `/tellyourstory/<int:TellYourStory_id>/update/` | Returns the detail view for `<TYS_pk>` |  |
 
