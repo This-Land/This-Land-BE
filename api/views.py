@@ -21,7 +21,7 @@ class POIListView(ListCreateAPIView):
 
 class POIDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = POISerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     lookup_url_kwarg = 'PointOfInterest_id'
     queryset = PointOfInterest.objects.all()
     
@@ -49,7 +49,7 @@ class TYSListView(ListCreateAPIView):
 
 class TYSDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = TYSSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     lookup_url_kwarg = 'TellYourStory_id'
     queryset = TellYourStory.objects.all()
     
