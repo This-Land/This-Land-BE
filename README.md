@@ -1,9 +1,5 @@
 # [This Land: Backend](https://this-land-team-5.herokuapp.com/admin/)
 
-![ThisLand Logo](https://momentum-gallery.s3.amazonaws.com/media/images/land.png "ThisLand Logo")
-
-https://momentum-gallery.s3.amazonaws.com/media/images/land.png
-
 ### ThisLand is a REST API built with Django, for use with the [ThisLand](https://this-land.netlify.app//) front-end app using React. 
 
 The [This Land API](https://this-land-team-5.herokuapp.com/admin/) provides the backend & API of our this-land app. 'This Land' allows users to View, Create, Edit, and Delete Points of interest and the stories associated with them.
