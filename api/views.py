@@ -7,7 +7,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 
 class POIListView(ListCreateAPIView):
     serializer_class = POISerializer
-    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadonly]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
@@ -21,23 +21,14 @@ class POIListView(ListCreateAPIView):
 
 class POIDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = POISerializer
-    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     lookup_url_kwarg = 'PointOfInterest_id'
     queryset = PointOfInterest.objects.all()
     
-    def get_queryset(self):	
-        # if the request method is GET, the queryset is all viewable POIs	
-        # otherwise, the queryset is all POIs the current user owns	
-        if self.request.method == "GET":	
-            return PointOfInterest.objects.all()	
-        return self.request.user.PointsOfInterest.all()
-    
+
 class TYSListView(ListCreateAPIView):
     serializer_class = TYSSerializer
-    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
         # if the request method is GET, the queryset is all viewable TYSs
@@ -49,9 +40,9 @@ class TYSListView(ListCreateAPIView):
 
 class TYSDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = TYSSerializer
-    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     lookup_url_kwarg = 'TellYourStory_id'
-    queryset = TellYourStory.objects.all()
+    queryset = TellYourStory.objects.all()  
     
     
 
