@@ -28,5 +28,5 @@ class TellYourStory(models.Model):
     date_created = models.DateField(auto_now=True)
 
 
-    # def __str__(self):
-    #     return f"{self.text} {self.images} {self.date_created}"
+    def __str__(self):
+        return f"{self.poi} {self.date_created}"

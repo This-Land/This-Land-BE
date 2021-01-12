@@ -5,5 +5,4 @@ from .models import PointOfInterest, TellYourStory, User
 
 admin.site.register(PointOfInterest)
 admin.site.register(TellYourStory)
-
 admin.site.register(User)
