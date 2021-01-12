@@ -1,13 +1,11 @@
 from core.models import PointOfInterest, TellYourStory
 from api.serializers import POISerializer, TYSSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-#from rest_framework import  permissions#
-
-
+#from rest_framework import permissions
 
 class POIListView(ListCreateAPIView):
     serializer_class = POISerializer
-    # permission_classes = [IsAuthenticatedOrReadonly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
@@ -30,6 +28,9 @@ class TYSListView(ListCreateAPIView):
     serializer_class = TYSSerializer
     # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
     def get_queryset(self):
         # if the request method is GET, the queryset is all viewable TYSs
         # otherwise, the queryset is all TYSs the current user owns
@@ -43,7 +44,3 @@ class TYSDetailView(RetrieveUpdateDestroyAPIView):
     # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     lookup_url_kwarg = 'TellYourStory_id'
     queryset = TellYourStory.objects.all()  
-    
-    
-
-      
