@@ -1,6 +1,6 @@
 # [This Land: Backend](https://this-land-team-5.herokuapp.com/admin/)
 
-![Barkley Logo](https://momentum-gallery.s3.amazonaws.com/media/images/land.png "Barkley Logo")
+![ThisLand Logo](https://momentum-gallery.s3.amazonaws.com/media/images/land.png "ThisLand Logo")
 
 ### ThisLand is a REST API built with Django, for use with the [ThisLand](https://this-land.netlify.app//) front-end app using React. 
 
